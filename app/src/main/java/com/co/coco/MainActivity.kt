@@ -1,11 +1,24 @@
 package com.co.coco
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.co.coco.databinding.ActivityMainBinding
+import com.co.coco.model.Computer
+import dagger.android.support.DaggerAppCompatActivity
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    @Inject
+    lateinit var computer: Computer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        binding.titleTextView.text = computer.motherboard.toString()
     }
 }
