@@ -3,10 +3,28 @@ package com.co.coco.fragments
 import android.os.Bundle
 import android.view.View
 import com.co.coco.R
+import com.co.coco.dagger.navigator.MarketNavigation
 import com.co.coco.databinding.FragmentFirstBinding
+import com.co.coco.model.Computer
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import com.redmadrobot.extensions.viewbinding.viewBinding
+import javax.inject.Inject
 
 class FirstFragment : BaseFragment() {
+
+    @Inject
+    lateinit var rootLocalRouter: Router
+
+    @Inject
+    lateinit var navigatorHolder: NavigatorHolder
+
+    @Inject
+    lateinit var navigation: MarketNavigation
+
+    @Inject
+    lateinit var computer: Computer
+
     override val layoutId: Int
         get() = R.layout.fragment_first
 
@@ -14,6 +32,9 @@ class FirstFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.nameTextView.text = "1"
+        binding.nameTextView.setOnClickListener {
+            navigation.openSecondScreen(rootLocalRouter)
+        }
+        binding.nameTextView.text = computer.motherboard.toString()
     }
 }
