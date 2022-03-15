@@ -6,14 +6,14 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk Versions.androidCompileSdkVersion
 
     defaultConfig {
-        applicationId "com.co.coco"
-        minSdk 26
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        applicationId App.id
+        minSdk Versions.androidMinSdkVersion
+        targetSdk Versions.androidTargetSdkVersion
+        versionCode App.versionCode
+        versionName App.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,11 +25,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility Versions.javaVersion
+        targetCompatibility Versions.javaVersion
     }
     buildFeatures {
-        viewBinding = true
+        viewBinding  true
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -41,23 +41,23 @@ android {
 dependencies {
     implementation project(":core")
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.dagger:dagger:2.38.1'
-    kapt 'com.google.dagger:dagger-compiler:2.38.1'
-    implementation 'com.google.dagger:dagger-android:2.35.1'
-    implementation 'com.google.dagger:dagger-android-support:2.34'
-    kapt 'com.google.dagger:dagger-android-processor:2.38.1'
+    implementation Dagger.dagger
+    kapt Dagger.compiler
+    implementation Dagger.android
+    implementation Dagger.androidSupport
+    kapt Dagger.androidProcessor
 
-    //For by viewBinding()
-    implementation "com.redmadrobot.extensions:viewbinding-ktx:4.2.1-0"
+    //For 'by viewBinding()
+    implementation UI.viewBindingKtx
 
     //Cicerone
-    implementation "com.github.terrakok:cicerone:7.1"
+    implementation Dependencies.cicerone
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation Dependencies.timber
+
+    implementation Android.ktx
+    implementation Android.appCompat
+    implementation Android.material
+    implementation Android.constraintLayout
+    testImplementation TestDependencies.junit
 }
