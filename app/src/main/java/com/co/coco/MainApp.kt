@@ -21,7 +21,9 @@ class MainApp : Application(), HasAndroidInjector {
     }
 
     private fun initApplicationComponent() {
-        this.applicationComponent = DaggerApplicationComponent.create()
+        this.applicationComponent = DaggerApplicationComponent.builder()
+            .application(this)
+            .build()
         applicationComponent.inject(this)
     }
 

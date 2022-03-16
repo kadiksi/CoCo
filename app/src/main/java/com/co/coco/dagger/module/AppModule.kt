@@ -1,4 +1,4 @@
-package com.co.coco.dagger
+package com.co.coco.dagger.module
 
 import com.co.coco.model.Computer
 import com.co.coco.model.Motherboard

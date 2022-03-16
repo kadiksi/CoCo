@@ -5,6 +5,7 @@ import android.view.View
 import com.co.coco.R
 import com.co.coco.dagger.navigator.MarketNavigation
 import com.co.coco.databinding.FragmentFirstBinding
+import com.co.coco.helpers.ThemeActionListener
 import com.co.coco.model.Computer
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
@@ -33,7 +34,8 @@ class FirstFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.nameTextView.setOnClickListener {
-            navigation.openSecondScreen(rootLocalRouter)
+//            navigation.openSecondScreen(rootLocalRouter)
+            (activity as? ThemeActionListener)?.toggle()
         }
         binding.nameTextView.text = computer.motherboard.toString()
     }

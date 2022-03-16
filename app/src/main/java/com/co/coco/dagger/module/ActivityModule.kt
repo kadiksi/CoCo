@@ -1,4 +1,4 @@
-package com.co.coco.dagger
+package com.co.coco.dagger.module
 
 import com.co.coco.MainActivity
 import com.co.coco.fragments.ContainerFragment
