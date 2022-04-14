@@ -1,9 +1,14 @@
 apply from: '../library.gradle'
 
 dependencies {
+    api project(":core-data")
 
+    implementation Dependencies.timber
     implementation Android.ktx
     implementation Android.appCompat
     implementation Android.material
+    implementation(Kotlin.coroutinesCore)
+    implementation Android.fragmentKtx
+    implementation Dagger.dagger
     testImplementation TestDependencies.junit
 }

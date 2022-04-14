@@ -15,3 +15,6 @@ dependencyResolutionManagement {
 rootProject.name = "CoCo"
 include ':app'
 include ':core'
+include ':data'
+include ':core-data'
+include ':app-data'

@@ -3,6 +3,9 @@ package com.co.coco.dagger.module
 import android.content.Context
 import android.content.SharedPreferences
 import com.co.coco.MainApp
+import com.co.core.data.ConfigManager
+import com.co.core.manager.ConfigManagerImpl
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -13,8 +16,8 @@ class FileModule {
 
     @Provides
     @Singleton
-    internal fun provideApplicationContext(app: MainApp): Context {
-        return app
+    internal fun provideSharedPreferences(context: Context): SharedPreferences {
+        return context.getSharedPreferences(SHARED_PACKAGE, Context.MODE_PRIVATE)
     }
 
     @Provides
@@ -24,6 +27,7 @@ class FileModule {
     }
 
     companion object {
+        private const val SHARED_PACKAGE = "base_shared_preferences"
         private const val SHARED_PACKAGE_SESSION = "session"
     }
 }

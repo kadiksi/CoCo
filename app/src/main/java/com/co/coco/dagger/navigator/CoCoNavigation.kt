@@ -3,7 +3,7 @@ package com.co.coco.dagger.navigator
 import com.github.terrakok.cicerone.Router
 import javax.inject.Inject
 
-class MarketNavigation @Inject constructor(
+class CoCoNavigation @Inject constructor(
     private val router: Router
 ) {
 

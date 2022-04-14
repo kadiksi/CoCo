@@ -2,9 +2,8 @@ package com.co.coco.dagger
 
 import com.co.coco.MainApp
 import com.co.coco.dagger.di.NavigationModule
-import com.co.coco.dagger.module.ActivityModule
-import com.co.coco.dagger.module.AppModule
-import com.co.coco.dagger.module.FileModule
+import com.co.coco.dagger.module.*
+import com.co.core.manager.ManagerCoreModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -17,11 +16,14 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
+        AndroidSupportInjectionModule::class,
         AppModule::class,
         ActivityModule::class,
-        AndroidSupportInjectionModule::class,
         NavigationModule::class,
-        FileModule::class
+        ManagerCoreModule::class,
+        ViewModelModule::class,
+        NetworkModule::class,
+        FileModule::class,
     ]
 )
 interface ApplicationComponent : AndroidInjector<MainApp> {

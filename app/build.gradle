@@ -40,6 +40,8 @@ android {
 
 dependencies {
     implementation project(":core")
+    implementation project(":data")
+    implementation project(":app-data")
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dagger.dagger
     kapt Dagger.compiler
@@ -54,6 +56,15 @@ dependencies {
     implementation Dependencies.cicerone
 
     implementation Dependencies.timber
+    implementation Kotlin.coroutinesCore
+    implementation Kotlin.coroutinesAndroid
+
+    implementation Network.retrofit
+    implementation Network.retrofitCoroutines
+    implementation Network.retrofitGson
+    implementation Network.okHttp
+    implementation Network.okHttpTls
+    implementation Network.okHttpLogging
 
     implementation Android.ktx
     implementation Android.appCompat

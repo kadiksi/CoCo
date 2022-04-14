@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.androidx.AppNavigator
 
-class MarketAppNavigator(
+class AppNavigator(
     activity: FragmentActivity,
     fragmentManager: FragmentManager,
     containerId: Int
